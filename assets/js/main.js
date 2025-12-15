@@ -1,3 +1,62 @@
+// ===== Loader =====
+window.addEventListener('load', () => {
+    const loader = document.querySelector('.loader-wrapper');
+    setTimeout(() => {
+        loader.classList.add('hidden');
+        // Inicia animações após o loader
+        initScrollAnimations();
+    }, 800);
+});
+
+// ===== Toggle de Tema (Dark Mode) =====
+const themeToggle = document.querySelector('.theme-toggle');
+const themeIcon = themeToggle.querySelector('i');
+
+// Verifica tema salvo
+const savedTheme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', savedTheme);
+updateThemeIcon(savedTheme);
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+});
+
+function updateThemeIcon(theme) {
+    if (theme === 'dark') {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    }
+}
+
+// ===== Animações ao Scroll =====
+function initScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    animatedElements.forEach(el => observer.observe(el));
+}
+
 // ===== Menu Mobile Toggle =====
 const menuToggle = document.querySelector('.menu-toggle');
 const navList = document.querySelector('.nav-list');
@@ -37,37 +96,106 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// ===== Animação das barras de habilidades =====
-const skillBars = document.querySelectorAll('.skill-progress');
+// ===== Sistema de Abas das Habilidades =====
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabPanels = document.querySelectorAll('.tab-panel');
 
-const animateSkillBars = () => {
-    skillBars.forEach(bar => {
-        const barTop = bar.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
+tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Remove active de todos os botões
+        tabBtns.forEach(b => b.classList.remove('active'));
+        // Adiciona active ao botão clicado
+        btn.classList.add('active');
         
-        if (barTop < windowHeight - 50) {
-            const width = bar.style.width;
+        // Esconde todos os painéis
+        tabPanels.forEach(panel => panel.classList.remove('active'));
+        
+        // Mostra o painel correspondente
+        const tabId = btn.getAttribute('data-tab');
+        const targetPanel = document.getElementById(tabId);
+        targetPanel.classList.add('active');
+        
+        // Anima as barras de progresso do painel ativo
+        animateProgressBars(targetPanel);
+    });
+});
+
+// ===== Animação das barras de habilidades =====
+const animateProgressBars = (container = document) => {
+    const progressBars = container.querySelectorAll('.skill-progress, .mini-progress');
+    
+    progressBars.forEach(bar => {
+        const targetWidth = bar.getAttribute('data-width');
+        if (targetWidth) {
+            // Reset para animar
             bar.style.width = '0';
+            // Pequeno delay para garantir que o reset seja aplicado
             setTimeout(() => {
-                bar.style.width = width;
+                bar.style.width = targetWidth + '%';
             }, 100);
         }
     });
 };
 
-// Anima apenas uma vez
+// Anima quando a seção de habilidades entra na viewport
 let skillsAnimated = false;
-window.addEventListener('scroll', () => {
-    if (!skillsAnimated) {
-        const skillsSection = document.querySelector('.habilidades');
-        const sectionTop = skillsSection.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        
-        if (sectionTop < windowHeight - 100) {
-            animateSkillBars();
+const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px'
+};
+
+const skillsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !skillsAnimated) {
+            // Anima apenas o painel ativo inicial
+            const activePanel = document.querySelector('.tab-panel.active');
+            if (activePanel) {
+                animateProgressBars(activePanel);
+            }
             skillsAnimated = true;
         }
-    }
+    });
+}, observerOptions);
+
+const skillsSection = document.querySelector('.habilidades');
+if (skillsSection) {
+    skillsObserver.observe(skillsSection);
+}
+
+// ===== Efeito hover nos cards de habilidade =====
+const skillCards = document.querySelectorAll('.skill-card');
+
+skillCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-8px) scale(1.02)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0) scale(1)';
+    });
+});
+
+// ===== Animação dos pontos de idioma =====
+const animateLanguageDots = () => {
+    const langDots = document.querySelectorAll('.lang-dots .dot.active');
+    langDots.forEach((dot, index) => {
+        dot.style.opacity = '0';
+        dot.style.transform = 'scale(0)';
+        setTimeout(() => {
+            dot.style.transition = 'all 0.3s ease';
+            dot.style.opacity = '1';
+            dot.style.transform = 'scale(1)';
+        }, index * 150);
+    });
+};
+
+// Chama a animação quando o painel office está ativo
+tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        if (btn.getAttribute('data-tab') === 'office') {
+            setTimeout(animateLanguageDots, 300);
+        }
+    });
 });
 
 // ===== Link ativo na navegação =====
@@ -87,19 +215,6 @@ window.addEventListener('scroll', () => {
             document.querySelector('.nav-link[href*=' + sectionId + ']')?.classList.remove('active');
         }
     });
-});
-
-// ===== Formulário de contato =====
-const contactForm = document.querySelector('.contato-form');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Aqui você pode adicionar a lógica para enviar o formulário
-    // Por exemplo, usando fetch para enviar para um servidor
-    
-    alert('Mensagem enviada com sucesso! (Simulação)');
-    contactForm.reset();
 });
 
 // ===== Scroll suave para links internos =====

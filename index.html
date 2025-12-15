@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio</title>
+    <title>Caio Mendes | Portfólio</title>
+    <meta name="description" content="Portfólio de Caio Mendes - Desenvolvedor Web em formação, unindo criatividade e conhecimento técnico.">
+    <meta name="keywords" content="desenvolvedor web, portfólio, HTML, CSS, JavaScript, design">
+    <meta name="author" content="Caio Mendes">
+    <link rel="icon" type="image/svg+xml" href="assets/imgs/favicon.svg">
     <link rel="stylesheet" href="assets/style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Loader -->
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <span class="loader-text">Carregando...</span>
+        </div>
+    </div>
+
     <!-- Header / Navegação -->
     <header class="header">
         <nav class="nav container">
@@ -20,9 +32,14 @@
                 <li><a href="#projetos" class="nav-link">Projetos</a></li>
                 <li><a href="#contato" class="nav-link">Contato</a></li>
             </ul>
-            <button class="menu-toggle" aria-label="Menu">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Alternar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </nav>
     </header>
 
@@ -30,22 +47,22 @@
     <section id="home" class="hero">
         <div class="container hero-content">
             <div class="hero-text">
-                <p class="hero-subtitle">Olá, eu sou</p>
-                <h1 class="hero-title">Seu Nome</h1>
-                <p class="hero-description">Desenvolvedor Web apaixonado por criar experiências digitais incríveis e funcionais.</p>
-                <div class="hero-buttons">
+                <p class="hero-subtitle animate-on-scroll fade-right">Olá, eu sou</p>
+                <h1 class="hero-title animate-on-scroll fade-right" style="animation-delay: 0.1s">Caio Mendes</h1>
+                <p class="hero-description animate-on-scroll fade-right" style="animation-delay: 0.2s">Desenvolvedor Web em formação, unindo criatividade e conhecimento técnico para criar soluções digitais modernas e funcionais.</p>
+                <div class="hero-buttons animate-on-scroll fade-up" style="animation-delay: 0.3s">
                     <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
                     <a href="#contato" class="btn btn-outline">Contato</a>
                 </div>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <div class="social-links animate-on-scroll fade-up" style="animation-delay: 0.4s">
+                    <a href="https://github.com/caiogom-projects" class="social-link"><i class="fab fa-github"></i></a>
+                    <!--<a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>-->
+                    <a href="https://www.instagram.com/caio.gomendes/" class="social-link"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="image-placeholder">
-                    <i class="fas fa-user"></i>
+            <div class="hero-image animate-on-scroll fade-left">
+                <div class="hero-photo">
+                    <img src="assets/imgs/person-photo.png" alt="Caio Mendes">
                 </div>
             </div>
         </div>
@@ -54,16 +71,17 @@
     <!-- Seção Sobre -->
     <section id="sobre" class="sobre">
         <div class="container">
-            <h2 class="section-title">Sobre Mim</h2>
+            <h2 class="section-title animate-on-scroll fade-up">Sobre Mim</h2>
             <div class="sobre-content">
-                <div class="sobre-image">
+                <div class="sobre-image animate-on-scroll fade-right">
                     <div class="image-placeholder large">
-                        <i class="fas fa-code"></i>
+                        <i class="fas fa-question"></i>
                     </div>
                 </div>
-                <div class="sobre-text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                <div class="sobre-text animate-on-scroll fade-left">
+                    <p>Minha jornada começou na área industrial, onde me formei em <strong>Mecânico de Usinagem</strong> e <strong>Auxiliar de Produção</strong> pelo SENAI. Essa experiência me ensinou disciplina, atenção aos detalhes e a importância de fazer um trabalho bem feito.</p>
+                    <p>Hoje, estou em transição de carreira para a área de tecnologia, estudando <strong>Desenvolvimento Web</strong> de forma autodidata. Acredito que a combinação da minha formação técnica com as habilidades digitais que estou desenvolvendo me torna um profissional versátil e dedicado.</p>
+                    <p>Além de programação, tenho interesse em <strong>Design Gráfico</strong> e <strong>Marketing Digital</strong>, áreas que estou aprofundando atualmente. Estou sempre em busca de novos desafios e oportunidades para crescer!</p>
                 </div>
             </div>
         </div>
@@ -72,50 +90,364 @@
     <!-- Seção Habilidades -->
     <section id="habilidades" class="habilidades">
         <div class="container">
-            <h2 class="section-title">Habilidades</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fab fa-html5"></i>
-                    <h3>HTML5</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%;"></div>
+            <h2 class="section-title animate-on-scroll fade-up">Habilidades</h2>
+            <p class="section-subtitle animate-on-scroll fade-up">Minhas competências adquiridas através de cursos, formações e estudos autodidatas</p>
+            
+            <!-- Abas de Navegação -->
+            <div class="skills-tabs animate-on-scroll fade-up">
+                <button class="tab-btn active" data-tab="web">
+                    <i class="fas fa-code"></i>
+                    <span>Web & Design</span>
+                    <small>Autodidata</small>
+                </button>
+                <button class="tab-btn" data-tab="tecnico">
+                    <i class="fas fa-cogs"></i>
+                    <span>Técnico</span>
+                    <small>SENAI</small>
+                </button>
+                <button class="tab-btn" data-tab="office">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Office & Idiomas</span>
+                    <small>Intermediário</small>
+                </button>
+                <button class="tab-btn" data-tab="cursando">
+                    <i class="fas fa-rocket"></i>
+                    <span>Em Desenvolvimento</span>
+                    <small>Cursando</small>
+                </button>
+            </div>
+
+            <!-- Conteúdo das Abas -->
+            <div class="skills-content">
+                
+                <!-- Aba Web & Design -->
+                <div class="tab-panel active" id="web">
+                    <div class="tab-header">
+                        <span class="badge autodidata"><i class="fas fa-graduation-cap"></i> Autodidata</span>
+                        <p>Habilidades desenvolvidas através de cursos online, projetos pessoais e muito estudo independente.</p>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-card" data-aos="fade-up">
+                            <div class="skill-icon">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>HTML5</h3>
+                                <span class="skill-level">Avançado</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                            <p class="skill-desc">Estruturação semântica, SEO e acessibilidade</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up">
+                            <div class="skill-icon">
+                                <i class="fab fa-css3-alt"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>CSS3</h3>
+                                <span class="skill-level">Avançado</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                            <p class="skill-desc">Flexbox, Grid, animações e responsividade</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up">
+                            <div class="skill-icon">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>JavaScript</h3>
+                                <span class="skill-level">Intermediário</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="65"></div>
+                            </div>
+                            <p class="skill-desc">DOM, eventos, APIs e lógica de programação</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up">
+                            <div class="skill-icon">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Git & GitHub</h3>
+                                <span class="skill-level">Intermediário</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="60"></div>
+                            </div>
+                            <p class="skill-desc">Controle de versão e colaboração</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up">
+                            <div class="skill-icon">
+                                <i class="fab fa-figma"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Figma</h3>
+                                <span class="skill-level">Básico</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="50"></div>
+                            </div>
+                            <p class="skill-desc">Prototipagem e design de interfaces</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up">
+                            <div class="skill-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Krita</h3>
+                                <span class="skill-level">Básico</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="45"></div>
+                            </div>
+                            <p class="skill-desc">Arte digital e ilustração</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up">
+                            <div class="skill-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Canva</h3>
+                                <span class="skill-level">Intermediário</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="70"></div>
+                            </div>
+                            <p class="skill-desc">Design gráfico, posts e apresentações</p>
+                        </div>
+                        <div class="skill-card" data-aos="fade-up">
+                            <div class="skill-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Paint.NET</h3>
+                                <span class="skill-level">Intermediário</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="65"></div>
+                            </div>
+                            <p class="skill-desc">Edição de imagens e manipulação gráfica</p>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-card">
-                    <i class="fab fa-css3-alt"></i>
-                    <h3>CSS3</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%;"></div>
+
+                <!-- Aba Técnico -->
+                <div class="tab-panel" id="tecnico">
+                    <div class="tab-header">
+                        <span class="badge senai"><i class="fas fa-certificate"></i> Formação SENAI</span>
+                        <p>Formações técnicas profissionalizantes realizadas no SENAI com certificação reconhecida.</p>
+                    </div>
+                    <div class="skills-grid technical">
+                        <div class="skill-card technical-card" data-aos="fade-up">
+                            <div class="skill-icon technical">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Mecânico de Usinagem</h3>
+                                <span class="skill-duration"><i class="fas fa-clock"></i> 2 anos</span>
+                                <span class="skill-year"><i class="fas fa-calendar"></i> 2022 - 2023</span>
+                            </div>
+                            <div class="skill-details">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Operação de torno e fresadora</li>
+                                    <li><i class="fas fa-check"></i> Leitura e interpretação de desenhos técnicos</li>
+                                    <li><i class="fas fa-check"></i> Metrologia e instrumentos de medição</li>
+                                    <li><i class="fas fa-check"></i> Usinagem CNC básico</li>
+                                </ul>
+                            </div>
+                            <div class="certificate-badge">
+                                <i class="fas fa-award"></i> Certificado SENAI
+                            </div>
+                        </div>
+                        <div class="skill-card technical-card" data-aos="fade-up">
+                            <div class="skill-icon technical">
+                                <i class="fas fa-boxes"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Auxiliar de Produção</h3>
+                                <span class="skill-duration"><i class="fas fa-clock"></i> 1 ano</span>
+                                <span class="skill-year"><i class="fas fa-calendar"></i> 2020</span>
+                            </div>
+                            <div class="skill-details">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Controle de qualidade</li>
+                                    <li><i class="fas fa-check"></i> Processos de produção industrial</li>
+                                    <li><i class="fas fa-check"></i> Segurança do trabalho</li>
+                                    <li><i class="fas fa-check"></i> Organização e logística</li>
+                                </ul>
+                            </div>
+                            <div class="certificate-badge">
+                                <i class="fas fa-award"></i> Certificado SENAI
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-card">
-                    <i class="fab fa-js"></i>
-                    <h3>JavaScript</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 75%;"></div>
+
+                <!-- Aba Office & Idiomas -->
+                <div class="tab-panel" id="office">
+                    <div class="tab-header">
+                        <span class="badge office"><i class="fas fa-laptop"></i> Ferramentas & Idiomas</span>
+                        <p>Conhecimentos em ferramentas de produtividade e comunicação adquiridos durante as formações.</p>
+                    </div>
+                    <div class="skills-grid office-grid">
+                        <div class="skill-card office-card" data-aos="fade-up">
+                            <div class="skill-icon office">
+                                <i class="fab fa-microsoft"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Pacote Office</h3>
+                                <span class="skill-level">Intermediário</span>
+                                <span class="skill-duration"><i class="fas fa-clock"></i> 3 anos de experiência</span>
+                            </div>
+                            <div class="office-apps">
+                                <div class="office-app">
+                                    <i class="fas fa-file-word"></i>
+                                    <span>Word</span>
+                                    <div class="mini-bar"><div class="mini-progress" data-width="75"></div></div>
+                                </div>
+                                <div class="office-app">
+                                    <i class="fas fa-file-excel"></i>
+                                    <span>Excel</span>
+                                    <div class="mini-bar"><div class="mini-progress" data-width="70"></div></div>
+                                </div>
+                                <div class="office-app">
+                                    <i class="fas fa-file-powerpoint"></i>
+                                    <span>PowerPoint</span>
+                                    <div class="mini-bar"><div class="mini-progress" data-width="65"></div></div>
+                                </div>
+                            </div>
+                            <p class="skill-desc">Conhecimentos adquiridos durante os cursos do SENAI</p>
+                        </div>
+                        <div class="skill-card language-card" data-aos="fade-up">
+                            <div class="skill-icon language">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Inglês</h3>
+                                <span class="skill-level">Básico</span>
+                            </div>
+                            <div class="language-skills">
+                                <div class="lang-skill">
+                                    <span><i class="fas fa-book-reader"></i> Leitura</span>
+                                    <div class="lang-dots">
+                                        <span class="dot active"></span>
+                                        <span class="dot active"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                    </div>
+                                </div>
+                                <div class="lang-skill">
+                                    <span><i class="fas fa-pen"></i> Escrita</span>
+                                    <div class="lang-dots">
+                                        <span class="dot active"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                    </div>
+                                </div>
+                                <div class="lang-skill">
+                                    <span><i class="fas fa-headphones"></i> Compreensão</span>
+                                    <div class="lang-dots">
+                                        <span class="dot active"></span>
+                                        <span class="dot active"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                    </div>
+                                </div>
+                                <div class="lang-skill">
+                                    <span><i class="fas fa-comments"></i> Conversação</span>
+                                    <div class="lang-dots">
+                                        <span class="dot active"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="skill-desc">Leitura técnica e documentações em inglês</p>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-card">
-                    <i class="fab fa-react"></i>
-                    <h3>React</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 70%;"></div>
+
+                <!-- Aba Em Desenvolvimento -->
+                <div class="tab-panel" id="cursando">
+                    <div class="tab-header">
+                        <span class="badge cursando"><i class="fas fa-spinner fa-pulse"></i> Em Andamento</span>
+                        <p>Cursos que estou realizando atualmente para expandir meus conhecimentos e habilidades.</p>
+                    </div>
+                    <div class="skills-grid cursando-grid">
+                        <div class="skill-card cursando-card" data-aos="fade-up">
+                            <div class="curso-status">
+                                <span class="status-badge"><i class="fas fa-play-circle"></i> Cursando</span>
+                            </div>
+                            <div class="skill-icon cursando-icon">
+                                <i class="fab fa-js-square"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>JavaScript & TypeScript</h3>
+                                <span class="skill-year"><i class="fas fa-calendar"></i> 2025</span>
+                            </div>
+                            <div class="curso-progress">
+                                <div class="progress-header">
+                                    <span>Progresso do curso</span>
+                                    <span class="progress-percent">Em andamento</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress animated-progress" data-width="30"></div>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Fundamentos de JavaScript</li>
+                                    <li><i class="fas fa-check"></i> DOM e Eventos</li>
+                                    <li><i class="fas fa-spinner fa-spin"></i> TypeScript básico</li>
+                                    <li><i class="fas fa-circle"></i> Programação assíncrona</li>
+                                    <li><i class="fas fa-circle"></i> Frameworks modernos</li>
+                                </ul>
+                            </div>
+                            <p class="skill-desc">Aprofundando conhecimentos em programação web frontend e backend</p>
+                        </div>
+                        <div class="skill-card cursando-card" data-aos="fade-up">
+                            <div class="curso-status">
+                                <span class="status-badge"><i class="fas fa-play-circle"></i> Cursando</span>
+                            </div>
+                            <div class="skill-icon cursando-icon marketing">
+                                <i class="fas fa-bullhorn"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Marketing Digital</h3>
+                                <span class="skill-year"><i class="fas fa-calendar"></i> 2025</span>
+                            </div>
+                            <div class="curso-progress">
+                                <div class="progress-header">
+                                    <span>Progresso do curso</span>
+                                    <span class="progress-percent">Em andamento</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress animated-progress" data-width="25"></div>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Fundamentos do Marketing Digital</li>
+                                    <li><i class="fas fa-spinner fa-spin"></i> SEO e otimização</li>
+                                    <li><i class="fas fa-circle"></i> Redes sociais</li>
+                                    <li><i class="fas fa-circle"></i> Tráfego pago</li>
+                                    <li><i class="fas fa-circle"></i> Análise de métricas</li>
+                                </ul>
+                            </div>
+                            <p class="skill-desc">Estratégias de marketing para presença digital e geração de leads</p>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-card">
-                    <i class="fab fa-git-alt"></i>
-                    <h3>Git</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%;"></div>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-figma"></i>
-                    <h3>Figma</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 65%;"></div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
@@ -123,125 +455,94 @@
     <!-- Seção Projetos -->
     <section id="projetos" class="projetos">
         <div class="container">
-            <h2 class="section-title">Projetos</h2>
-            <div class="projects-grid">
-                <article class="project-card">
-                    <div class="project-image">
-                        <div class="image-placeholder">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <a href="#" class="btn btn-small"><i class="fas fa-eye"></i> Ver</a>
-                            <a href="#" class="btn btn-small"><i class="fab fa-github"></i> Código</a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Projeto 1</h3>
-                        <p>Descrição breve do projeto e tecnologias utilizadas.</p>
-                        <div class="project-tags">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
+            <h2 class="section-title animate-on-scroll fade-up">Projetos</h2>
+            
+            <!-- Em Breve -->
+            <div class="coming-soon animate-on-scroll fade-up">
+                <div class="coming-soon-content">
+                    <div class="coming-soon-icon">
+                        <i class="fas fa-rocket"></i>
+                        <div class="orbit">
+                            <span class="orbit-dot"></span>
                         </div>
                     </div>
-                </article>
-                <article class="project-card">
-                    <div class="project-image">
-                        <div class="image-placeholder">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <a href="#" class="btn btn-small"><i class="fas fa-eye"></i> Ver</a>
-                            <a href="#" class="btn btn-small"><i class="fab fa-github"></i> Código</a>
-                        </div>
+                    <h3 class="coming-soon-title">Em Breve</h3>
+                    <p class="coming-soon-text">Estou trabalhando em projetos incríveis que serão adicionados aqui em breve. Fique ligado!</p>
+                    <div class="coming-soon-tags">
+                        <span><i class="fab fa-html5"></i> HTML5</span>
+                        <span><i class="fab fa-css3-alt"></i> CSS3</span>
+                        <span><i class="fab fa-js"></i> JavaScript</span>
                     </div>
-                    <div class="project-info">
-                        <h3>Projeto 2</h3>
-                        <p>Descrição breve do projeto e tecnologias utilizadas.</p>
-                        <div class="project-tags">
-                            <span>React</span>
-                            <span>Node.js</span>
+                    <div class="coming-soon-progress">
+                        <div class="progress-label">
+                            <span>Progresso dos Estudos</span>
+                            <span>70%</span>
                         </div>
-                    </div>
-                </article>
-                <article class="project-card">
-                    <div class="project-image">
-                        <div class="image-placeholder">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <a href="#" class="btn btn-small"><i class="fas fa-eye"></i> Ver</a>
-                            <a href="#" class="btn btn-small"><i class="fab fa-github"></i> Código</a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Projeto 3</h3>
-                        <p>Descrição breve do projeto e tecnologias utilizadas.</p>
-                        <div class="project-tags">
-                            <span>Vue.js</span>
-                            <span>Firebase</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção Contato -->
-    <section id="contato" class="contato">
-        <div class="container">
-            <h2 class="section-title">Contato</h2>
-            <div class="contato-content">
-                <div class="contato-info">
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>seuemail@exemplo.com</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Telefone</h4>
-                            <p>(11) 99999-9999</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Localização</h4>
-                            <p>São Paulo, Brasil</p>
+                        <div class="progress-bar-coming">
+                            <div class="progress-fill-coming" style="width: 70%"></div>
                         </div>
                     </div>
                 </div>
-                <form class="contato-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Seu nome" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Seu email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Assunto">
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Sua mensagem" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-                </form>
+                <div class="coming-soon-decoration">
+                    <div class="floating-shape shape-1"></div>
+                    <div class="floating-shape shape-2"></div>
+                    <div class="floating-shape shape-3"></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Footer / Contato -->
+    <footer id="contato" class="footer animate-on-scroll fade-up">
         <div class="container">
-            <p>&copy; 2025 Seu Nome. Todos os direitos reservados.</p>
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="footer-logo">Caio Mendes</h3>
+                    <p class="footer-desc">Desenvolvedor Web em formação, combinando conhecimento técnico industrial com habilidades digitais para criar soluções modernas.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/caiogom-projects" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                        <!--<a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>-->
+                        <a href="https://www.instagram.com/caio.gomendes/" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <div class="contact-items">
+                        <a href="mailto:seuemail@exemplo.com" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>caio.gom@outlook.com</span>
+                        </a>
+                        <!--
+                        <a href="tel:+5511999999999" class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(11) 99999-9999</span>
+                        </a>
+                        <a href="https://wa.me/5511999999999" target="_blank" class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                        -->
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>São Paulo, Brasil</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#habilidades">Habilidades</a></li>
+                        <li><a href="#projetos">Projetos</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Caio Mendes. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
