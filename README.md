@@ -8,7 +8,7 @@
 
 **Meu portfólio pessoal desenvolvido com HTML, CSS e JavaScript puro.**
 
-[🌐 Ver Demo](https://caiogom-projects.github.io/Portfolio) • [📧 Contato](mailto:caio.gomesmendes@outlook.com)
+[🌐 Visualizar ](https://caiogom-projects.github.io/Portfolio)
 
 </div>
 
