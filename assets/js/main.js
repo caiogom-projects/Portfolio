@@ -231,3 +231,320 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// ===== Gerador de Currículo =====
+function gerarCurriculo() {
+    // Dados do currículo - PERSONALIZE AQUI
+    const dados = {
+        nome: 'Caio Mendes',
+        titulo: 'Analista de Suporte Jr. | Desenvolvedor Web Jr. | Assistente de Marketing',
+        email: 'caio.gom@outlook.com',
+        telefone: '(16) 99778-8061',
+        localizacao: 'Sertãozinho - SP',
+        portfolio: 'https://caiogom-projects.github.io/Portfolio/',
+        
+        objetivo: 'Busco oportunidade na área de Marketing Digital, onde possa aplicar meus conhecimentos em criação de conteúdo, design gráfico e estratégias digitais. Tenho experiência com ferramentas como Canva, Figma e edição de imagens, além de estar me especializando em SEO, redes sociais e análise de métricas para contribuir com o crescimento da presença digital da empresa.',
+        
+        experiencia: [
+            {
+                cargo: 'Analista de Suporte Técnico Jr.',
+                empresa: 'Oliverio S/A - Sertãozinho',
+                periodo: 'fev/2025 - jul/2025',
+                descricao: 'Atendimento técnico ao cliente, resolução e organização de chamados, suporte técnico e alterações cadastrais, testes de automação, suporte em hardware e software.'
+            },
+            {
+                cargo: 'Estagiário - Analista de Suporte Técnico',
+                empresa: 'Oliverio S/A - Sertãozinho',
+                periodo: 'set/2024 - fev/2025',
+                descricao: 'Atendimento técnico ao cliente, resolução de chamados e manutenção de equipamentos. Suporte básico em hardware, software e redes.'
+            },
+            {
+                cargo: 'Jovem Aprendiz - Mecânico de Usinagem',
+                empresa: 'Nova Smar S/A - Sertãozinho',
+                periodo: 'nov/2022 - dez/2023',
+                descricao: 'Atuação em processos de produção industrial, operação de máquinas CNC e controle de qualidade.'
+            }
+        ],
+        
+        formacao: [
+            {
+                curso: 'Tecnólogo em Gestão Empresarial',
+                instituicao: 'Fatec - Dep. Waldyr Alceu Trigo',
+                periodo: '2º semestre (trancado)'
+            }
+        ],
+        
+        cursosTecnicos: [
+            {
+                curso: 'Mecânico de Usinagem',
+                instituicao: 'SENAI - Ettore Zanini',
+                periodo: 'fev/2022 - dez/2023'
+            },
+            {
+                curso: 'Auxiliar de Produção',
+                instituicao: 'SENAI - Ettore Zanini',
+                periodo: 'fev/2020 - dez/2020'
+            }
+        ],
+        
+        cursosComplementares: [
+            'JavaScript & TypeScript - Udemy (Cursando)',
+            'Marketing Digital (Cursando)',
+            'Inglês (Cursando)'
+        ],
+        
+        habilidades: {
+            desenvolvimento: ['HTML5', 'CSS3', 'JavaScript', 'Git/GitHub', 'Responsividade'],
+            design: ['Figma', 'Canva', 'Paint.NET', 'Krita'],
+            suporte: ['Suporte Técnico', 'Help Desk', 'Hardware', 'Software', 'Redes'],
+            ferramentas: ['VS Code', 'Pacote Office', 'Windows'],
+            idiomas: ['Português - Nativo', 'Inglês - Básico (Leitura Técnica)']
+        }
+    };
+
+    const curriculoHTML = `<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>CV - ${dados.nome}</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #333;
+            background: #fff;
+            max-width: 21cm;
+            margin: 0 auto;
+            padding: 1.5cm;
+        }
+        .header {
+            border-bottom: 2px solid #6c5ce7;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 24pt;
+            color: #6c5ce7;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+        .header .titulo {
+            font-size: 12pt;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .header .contato {
+            font-size: 10pt;
+            color: #555;
+        }
+        .header .contato span {
+            margin-right: 20px;
+        }
+        .section {
+            margin-bottom: 18px;
+        }
+        .section h2 {
+            font-size: 12pt;
+            color: #6c5ce7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .section p {
+            color: #444;
+            text-align: justify;
+        }
+        .item {
+            margin-bottom: 12px;
+        }
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .item h3 {
+            font-size: 11pt;
+            color: #333;
+            font-weight: 600;
+        }
+        .item .periodo {
+            font-size: 10pt;
+            color: #888;
+        }
+        .item .subtitulo {
+            font-size: 10pt;
+            color: #666;
+            font-style: italic;
+        }
+        .item .descricao {
+            font-size: 10pt;
+            color: #555;
+            margin-top: 3px;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .skills span {
+            background: #f0f0f0;
+            color: #333;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 9pt;
+            border: 1px solid #ddd;
+        }
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .item-compact {
+            font-size: 10pt;
+            color: #444;
+            margin-bottom: 6px;
+        }
+        .item-compact strong {
+            color: #333;
+        }
+        .periodo-inline {
+            color: #888;
+            font-size: 9pt;
+        }
+        .cursos-list {
+            list-style: none;
+        }
+        .cursos-list li {
+            padding: 3px 0;
+            padding-left: 15px;
+            position: relative;
+            font-size: 10pt;
+            color: #555;
+        }
+        .cursos-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #6c5ce7;
+        }
+        @media print {
+            body { padding: 0.5cm; }
+            .section { margin-bottom: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>${dados.nome}</h1>
+        <div class="titulo">${dados.titulo}</div>
+        <div class="contato">
+            <span>${dados.telefone}</span>
+            <span>${dados.email}</span>
+            <span>${dados.localizacao}</span>
+        </div>
+        <div class="contato" style="margin-top: 5px;">
+            <span><a href="${dados.portfolio}" style="color: #6c5ce7; text-decoration: none;">Site - Portfólio: caiogom-projects.github.io/Portfolio</a></span>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Objetivo</h2>
+        <p>${dados.objetivo}</p>
+    </div>
+    
+    <div class="section">
+        <h2>Experiência Profissional</h2>
+        ${dados.experiencia.map(exp => `
+        <div class="item">
+            <div class="item-header">
+                <h3>${exp.cargo}</h3>
+                <span class="periodo">${exp.periodo}</span>
+            </div>
+            <div class="subtitulo">${exp.empresa}</div>
+            <div class="descricao">${exp.descricao}</div>
+        </div>
+        `).join('')}
+    </div>
+    
+    <div class="section">
+        <h2>Formação Acadêmica</h2>
+        ${dados.formacao.map(form => `
+        <div class="item">
+            <div class="item-header">
+                <h3>${form.curso}</h3>
+                <span class="periodo">${form.periodo}</span>
+            </div>
+            <div class="subtitulo">${form.instituicao}</div>
+        </div>
+        `).join('')}
+    </div>
+    
+    <div class="two-columns">
+        <div class="section">
+            <h2>Cursos Técnicos</h2>
+            ${dados.cursosTecnicos.map(curso => `
+            <div class="item-compact">
+                <strong>${curso.curso}</strong> 
+                <p> ${curso.instituicao} <span class="periodo-inline">(${curso.periodo})</span> </p>
+            </div>
+            `).join('')}
+        </div>
+        
+        <div class="section">
+            <h2>Cursos Complementares</h2>
+            <ul class="cursos-list">
+                ${dados.cursosComplementares.map(curso => `<li>${curso}</li>`).join('')}
+            </ul>
+        </div>
+    </div>
+    
+    <div class="two-columns">
+        <div class="section">
+            <h2>Desenvolvimento Web</h2>
+            <div class="skills">
+                ${dados.habilidades.desenvolvimento.map(skill => `<span>${skill}</span>`).join('')}
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Design & Ferramentas</h2>
+            <div class="skills">
+                ${dados.habilidades.design.map(skill => `<span>${skill}</span>`).join('')}
+            </div>
+        </div>
+    </div>
+    
+    <div class="two-columns">
+        <div class="section">
+            <h2>Suporte Técnico</h2>
+            <div class="skills">
+                ${dados.habilidades.suporte.map(skill => `<span>${skill}</span>`).join('')}
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Office & Sistemas</h2>
+            <div class="skills">
+                ${dados.habilidades.ferramentas.map(skill => `<span>${skill}</span>`).join('')}
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Idiomas</h2>
+        <div class="skills">
+            ${dados.habilidades.idiomas.map(skill => `<span>${skill}</span>`).join('')}
+        </div>
+    </div>
+</body>
+</html>`;
+
+    const janela = window.open('', '_blank');
+    janela.document.write(curriculoHTML);
+    janela.document.close();
+    setTimeout(() => { janela.print(); }, 300);
+}
